@@ -145,7 +145,8 @@ private:
   //---------------------------------------------------------------------------
 
   // Number of events
-  TH1F *EventInfo;
+  TH1D *EventInfo;
+  //TH1F *EventInfo;
 
   // Scale factor evaluators
   BTagWeightEvaluator SF_CSV_;
@@ -303,7 +304,8 @@ ttbbLepJetsAnalyzer::ttbbLepJetsAnalyzer(const edm::ParameterSet& iConfig):
     gentree->Branch("genjet_pT", "std::vector<float>", &b_GenJet_pT);
   }
 
-  EventInfo = fs->make<TH1F>("EventInfo","Event Information",5,0,5);
+ // EventInfo = fs->make<TH1F>("EventInfo","Event Information",5,0,5);
+  EventInfo = fs->make<TH1D>("EventInfo","Event Information",5,0,5);
   EventInfo->GetXaxis()->SetBinLabel(1,"Number of Events");
   EventInfo->GetXaxis()->SetBinLabel(2,"Sum of Weights");
   EventInfo->GetXaxis()->SetBinLabel(3,"Number of ttbb Events");
